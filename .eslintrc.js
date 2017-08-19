@@ -26,6 +26,10 @@ module.exports = {
     // 配置有分号的模式，没有分号就报错
     'semi': ['error', 'always'],
     // 设置不校验缩进
-    'indent': 0
+    'indent': 0,
+    //函数方法名和括号之间不要空格
+    'space-before-function-paren':0,
+    //if() 不需要 if ()
+    'keyword-spacing':0
   }
 }
