@@ -95,10 +95,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
     @import "../../common/stylus/mixin.styl"
-    .fade-enter-active, .fade-leave-active
-        transition: all .7s
-    .fade-enter, .fade-leave-to
-        opacity: 0
+
     .header
         position: relative
         color: #fff;
@@ -210,7 +207,12 @@
             left: 0
             overflow: auto
             background: rgba(7, 17, 27, .8)
-            //opacity: .5
+            opacity: 1
+            &.fade-enter-active, &.fade-leave-active
+                transition: all .7s
+            &.fade-enter, &.fade-leave-to
+                opacity: 0
+                background: rgba(7, 17, 27, 0)
             .detail-wrapper
                 min-height: 100%
                 overflow: auto
