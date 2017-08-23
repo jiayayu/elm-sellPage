@@ -14,7 +14,7 @@
             </div>
             <div class="foods-wrapper" ref="foodsWrapper">
                 <ul>
-                    <li v-for="item in goods" class="food-list food-list-hook">
+                    <li v-for="item in goods" class="food-list food-list-hook" ref="foodList">
                         <h1 class="title">{{item.name}}</h1>
                         <ul>
                             <li v-for="food in item.foods" class="food-item border-1px">
@@ -59,7 +59,6 @@
     export default{
         data() {
             return {
-                classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
                 goods: [],
                 listHeight: [],
                 scrollY: 0,
@@ -95,6 +94,7 @@
             }
         },
         created() {
+            this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
             this.$http.get('/api/goods').then(response => {
                 if (response.body.errno === ERR_OK) {
                     this.goods = response.body.data;
@@ -110,11 +110,9 @@
                 // 体验优化，异步执行下落动画
                 this.$nextTick(() => {
                     // 这里的target 事件触发事件的 加号 的dom对象
-                    // position是 含有这个加号位置信息的对象
-                    const position = target.getBoundingClientRect();
                     // shopcart shopcart 子组件对象
                     const shopcart = this.$refs.shopcart;
-                    shopcart.drop(position, target);
+                    shopcart.drop(target);
                 });
             },
             selectMenu(index) {
@@ -130,7 +128,10 @@
                     click: true
                 });
                 this.foodsScroll.on('scroll', (pos) => {
-                    this.scrollY = Math.abs(Math.round(pos.y));
+                    // 判断滑动方向，避免下拉时分类高亮错误（如第一分类商品数量为1时，下拉使得第二分类高亮）
+                    if (pos.y <= 0) {
+                        this.scrollY = Math.abs(Math.round(pos.y));
+                    }
                 });
             },
             _calculateHeight() {
