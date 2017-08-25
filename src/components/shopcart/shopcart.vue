@@ -36,13 +36,13 @@
                     </div>
                     <div class="list-content" ref="listContent">
                         <ul>
-                            <li class="food" v-for="food in foodsSelect">
+                            <li class="food border-1px" v-for="food in foodsSelect">
                                 <span class="name">{{food.name}}</span>
                                 <div class="price">
                                     <span>￥{{food.price*food.count}}</span>
                                 </div>
                                 <div class="cartcontrol-wrapper">
-                                    <cartcontrol @cart-add="drop($event)" :food="food"></cartcontrol>
+                                    <cartcontrol @cart-add="drop" :food="food"></cartcontrol>
                                 </div>
                             </li>
                         </ul>

@@ -1,0 +1,29 @@
+[33mcommit 07994e64d5d6beb4f03fc266d8ce1f0fe9ded833[m
+Author: jiayayu <fsjyy@qq.com>
+Date:   Wed Aug 23 23:08:16 2017 +0800
+
+    shopcart购物车组件完成
+
+[33mcommit 901fa1b5f63a58f2d4d638160a95d00b9cfe0fcb[m
+Author: jiayayu <fsjyy@qq.com>
+Date:   Wed Aug 23 11:47:07 2017 +0800
+
+    goods组件完成 cartcontrol组件完成 shopcartcart组件基本完成 购物车小球动画实现
+
+[33mcommit 10eaaeb9f6b10981e52290f674f653c598419af7[m
+Author: jiayayu <fsjyy@qq.com>
+Date:   Sat Aug 19 11:58:13 2017 +0800
+
+    header组件完成，goods组件开始
+
+[33mcommit 21853100baf7d0d26165028f55c32f4dbc71bc39[m
+Author: jiayayu <fsjyy@qq.com>
+Date:   Wed Aug 16 17:47:01 2017 +0800
+
+    vue-router配置完成
+
+[33mcommit b2550fbd57e5d9a5892584cf32d101291293d2a9[m
+Author: jiayayu <fsjyy@qq.com>
+Date:   Wed Aug 16 15:43:19 2017 +0800
+
+    项目结构搭建完成

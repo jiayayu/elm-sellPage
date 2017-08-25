@@ -17,7 +17,7 @@
                     <li v-for="item in goods" class="food-list food-list-hook" ref="foodList">
                         <h1 class="title">{{item.name}}</h1>
                         <ul>
-                            <li v-for="food in item.foods" class="food-item border-1px">
+                            <li v-for="food in item.foods" class="food-item border-1px" @click="showFoodDetail(food)">
                                 <div class="icon">
                                     <img width="57" height="57" :src="food.icon">
                                 </div>
@@ -48,12 +48,14 @@
                       ref="shopcart">
             </shopcart>
         </div>
+        <food @add="drop($event)" :food="chooseFoodDetail" ref="food"></food>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
     import shopcart from '../shopcart/shopcart.vue';
     import cartcontrol from '../cartcontrol/cartcontrol.vue';
+    import food from '../food/food.vue';
     import BScroll from 'better-scroll';
     const ERR_OK = 0;
     export default{
@@ -62,13 +64,15 @@
                 goods: [],
                 listHeight: [],
                 scrollY: 0,
-                foodList: []
+                foodList: [],
+                chooseFoodDetail: {}
             };
         },
         props: {seller: Object},
         components: {
             shopcart,
-            cartcontrol
+            cartcontrol,
+            food
         },
         computed: {
             currentIndex() {
@@ -106,6 +110,10 @@
             });
         },
         methods: {
+            showFoodDetail(food) {
+                this.chooseFoodDetail = food;
+                this.$refs.food.show();
+            },
             drop(target) {
                 // 体验优化，异步执行下落动画
                 this.$nextTick(() => {
