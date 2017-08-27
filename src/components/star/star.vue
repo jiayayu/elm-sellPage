@@ -31,7 +31,6 @@
                 let score = Math.floor(this.score * 2) / 2;  // 小数部分大于.5的去为.5小于.5的舍去
                 let hasDecimal = score % 1 !== 0; // 是否有半星
                 let integer = Math.floor(score); // 全星的个数
-//          console.log(`score:${score} hasDecimal:${hasDecimal} integer:${integer}`);
                 for (let i = 0; i < integer; i++) {
                     result.push(CLS_ON);
                 }
@@ -70,31 +69,33 @@
                     bg-image('star48_half')
                 &.off
                     bg-image('star48_off')
-        &.star-36.star-item
-            width: 15px
-            height: 15px
-            margin-right: 6px
-            background-size: 15px 15px
-            &:last-child
-                margin-right: 0
-            &.on
-                bg-image('star36_on')
-            &.half
-                bg-image('star36_half')
-            &.off
-                bg-image('star36_off')
+        &.star-36
+            .star-item
+                width: 15px
+                height: 15px
+                margin-right: 6px
+                background-size: 15px 15px
+                &:last-child
+                    margin-right: 0
+                &.on
+                    bg-image('star36_on')
+                &.half
+                    bg-image('star36_half')
+                &.off
+                    bg-image('star36_off')
         &.star-24
-            width: 10px
-            height: 10px
-            margin-right: 3px
-            background-size: 10px 10px
-            &:last-child
-                margin-right: 0
-            &.on
-                bg-image('star24_on')
-            &.half
-                bg-image('star24_half')
-            &.off
-                bg-image('star24_off')
+            .star-item
+                width: 10px
+                height: 10px
+                margin-right: 3px
+                background-size: 10px 10px
+                &:last-child
+                    margin-right: 0
+                &.on
+                    bg-image('star24_on')
+                &.half
+                    bg-image('star24_half')
+                &.off
+                    bg-image('star24_off')
 
 </style>
