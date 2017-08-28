@@ -16,27 +16,35 @@
         </div>
 
         <!-- 路由匹配到的组件将渲染在这里 -->
-        <router-view :seller="seller"></router-view>
+        <keep-alive>
+            <router-view :seller="seller"></router-view>
+        </keep-alive>
 
     </div>
 </template>
 
 <script>
     import header from './components/header/header.vue';
+    import {urlParse} from 'common/js/util';
 
     const ERR_OK = 0;
 
     export default {
         data() {
             return {
-                seller: {}
+                seller: {
+                    id: (() => {
+                        let queryParam = urlParse();
+                        return queryParam.id;
+                    })()
+                }
             };
         },
         created() {
-            this.$http.get('/api/seller').then(response => {
+            this.$http.get('/api/seller/?id=' + this.seller.id).then(response => {
                 if (response.body.errno === ERR_OK) {
-                    this.seller = response.body.data;
-                    // console.log(this.seller);
+//                    this.seller = response.body.data;
+                    this.seller = Object.assign({}, this.seller, response.body.data);
                 }
             });
         },
