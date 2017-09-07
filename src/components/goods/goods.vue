@@ -57,6 +57,8 @@
     import cartcontrol from '../cartcontrol/cartcontrol.vue';
     import food from '../food/food.vue';
     import BScroll from 'better-scroll';
+    import {URL} from '../../common/js/util';
+
     const ERR_OK = 0;
     export default{
         data() {
@@ -99,7 +101,7 @@
         },
         created() {
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
-            this.$http.get('/api/goods').then(response => {
+            this.$http.get(URL + '/api/goods').then(response => {
                 if (response.body.errno === ERR_OK) {
                     this.goods = response.body.data;
                     this.$nextTick(() => {
@@ -194,7 +196,6 @@
                     .icon
                         icon(3)
                         margin-right: 2px
-
         .foods-wrapper
             flex: 1
             .title
@@ -245,7 +246,6 @@
                             text-decoration: line-through
                             font-size: 10px
                             color: rgb(147, 153, 159)
-
                     .cartcontrol-wrapper
                         position: absolute
                         right: 0

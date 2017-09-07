@@ -65,6 +65,7 @@
     import {formatDate} from '../../common/js/date';
     import ratingselect from '../ratingselect/ratingselect';
     import split from 'components/split/split';
+    import {URL} from '../../common/js/util';
 
     const ALL = 2;
     const ERR_OK = 0;
@@ -88,7 +89,7 @@
             ratingselect
         },
         created() {
-            this.$http.get('/api/ratings').then((response) => {
+            this.$http.get(`${URL}/api/ratings`).then((response) => {
                 response = response.body;
                 if (response.errno === ERR_OK) {
                     this.ratings = response.data;
@@ -136,7 +137,6 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
     @import "../../common/stylus/mixin.styl"
-
     .ratings
         position: absolute
         top: 174px

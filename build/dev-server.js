@@ -24,18 +24,18 @@ var app = express()
 
 // mock 模拟数据 start
 // 通过 Express 开启一个web服务
-var appData = require('../data.json')
-var seller = appData.seller
-var goods = appData.goods
-var ratings = appData.ratings
-
-var apiRouter = express.Router()
-apiRouter
-  .get('/seller', (req, res) => res.json({errno:0,data:seller}))
-  .get('/goods', (req, res) => res.json({errno:0,data:goods}))
-  .get('/ratings', (req, res) => res.json({errno:0,data:ratings}))
-
-app.use('/api',apiRouter);
+// var appData = require('../data.json')
+// var seller = appData.seller
+// var goods = appData.goods
+// var ratings = appData.ratings
+//
+// var apiRouter = express.Router()
+// apiRouter
+//   .get('/seller', (req, res) => res.json({errno:0,data:seller}))
+//   .get('/goods', (req, res) => res.json({errno:0,data:goods}))
+//   .get('/ratings', (req, res) => res.json({errno:0,data:ratings}))
+//
+// app.use('/api',apiRouter);
 // 获取数据可访问
 // http://localhost:8080/api/seller
 // http://localhost:8080/api/goods

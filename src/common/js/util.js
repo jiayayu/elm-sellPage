@@ -19,3 +19,4 @@ export function urlParse() {
   }
   return obj;
 };
+export const URL = 'http://47.93.229.73:9000';

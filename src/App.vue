@@ -25,7 +25,7 @@
 
 <script>
     import header from './components/header/header.vue';
-    import {urlParse} from 'common/js/util';
+    import {urlParse, URL} from 'common/js/util';
 
     const ERR_OK = 0;
 
@@ -41,7 +41,7 @@
             };
         },
         created() {
-            this.$http.get('/api/seller/?id=' + this.seller.id).then(response => {
+            this.$http.get(URL + '/api/seller/?id=' + this.seller.id).then(response => {
                 if (response.body.errno === ERR_OK) {
 //                    this.seller = response.body.data;
                     this.seller = Object.assign({}, this.seller, response.body.data);
